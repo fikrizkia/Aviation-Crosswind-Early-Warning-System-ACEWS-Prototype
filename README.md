@@ -151,4 +151,4 @@ github_repository/
 Proyek purwarupa me ini diselesaikan sebagai bagian dari kegiatan **Magang / Praktik Kerja Lapangan di BMKG Batam (Stasiun Meteorologi Hang Nadim Batam)**. Ucapan terima kasih disampaikan kepada seluruh pembimbing dan teknisi di BMKG Batam atas dorongan dan ilmu yang diberikan selama masa magang.
 
 ---
-*Dikembangkan oleh peserta magang BMKG Batam • 2026*
+*Dikembangkan oleh peserta magang BMKG Batam - Fikri Rizkia Prisyabil • 2026*
