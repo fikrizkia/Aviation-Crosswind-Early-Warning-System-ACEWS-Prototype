@@ -9,7 +9,6 @@
 Proyek ini dikembangkan secara **Mandiri (Independent Project)** sebagai bagian dari program **Magang / Praktik Kerja Lapangan di BMKG Batam (Stasiun Meteorologi Hang Nadim Batam)**.
 
 > [!IMPORTANT]
-> **Pernyataan Data Dummy (Mock Data)**:
 > Seluruh data parameter cuaca (seperti *Wind Speed*, *Wind Direction*, dan *Runway Heading*) yang digunakan dalam purwarupa ini adalah **DATA SIMULASI / TIRUAN (DUMMY DATA)** yang dibangkitkan khusus untuk pengujian logika alur data, evaluasi ambang batas bahaya, dan demonstrasi antarmuka HMI visual.
 
 ---
