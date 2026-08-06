@@ -21,9 +21,17 @@ Angin silang (*crosswind*) dengan kecepatan tinggi merupakan salah satu faktor r
 ### Solusi ACEWS
 **ACEWS (Aviation Crosswind Early Warning System)** dirancang sebagai purwarupa solusi otomatisasi pemantauan angin silang. Sistem ini mengolah trigonometri komponen vektor angin secara *real-time* terhadap orientasi landasan pacu (*Runway Heading*), lalu memberikan kalkulasi presisi komponen *Crosswind* dan *Headwind/Tailwind* beserta status peringatan dini berjenjang (*Early Warning Status*) pada antarmuka *Control Room HMI*.
 
+### 📐 Rumus Trigonometri Vektor Angin
+
+```text
+Selisih Sudut (θ)      = Arah Angin - Runway Heading
+Komponen Crosswind    = | Kecepatan Angin × sin(θ) |
+Komponen Headwind     = Kecepatan Angin × cos(θ)
+```
+
 $$\text{Relative Angle } (\theta) = \text{Wind\_Dir} - \text{Runway\_Head}$$
 
-$$\text{Crosswind Component} = |\text{Wind\_Speed} \times \sin(\theta)|$$
+$$\text{Crosswind Component} = \left| \text{Wind\_Speed} \times \sin(\theta) \right|$$
 
 $$\text{Headwind Component} = \text{Wind\_Speed} \times \cos(\theta)$$
 
@@ -31,7 +39,7 @@ $$\text{Headwind Component} = \text{Wind\_Speed} \times \cos(\theta)$$
 
 ## 🏗️ Arsitektur Sistem (3-Tier Architecture)
 
-```
+```text
   +-----------------------+      +-----------------------+      +-------------------------------+
   |   LOGIKA KONTROL PLC  | ---> | DATA PIPELINE BROKER  | ---> |     HMI CONTROL ROOM DASHBOARD|
   |  (OpenPLC / Ladder)   |      |      (Node-RED)       |      |   (Python Flask & Canvas 2D)  |
@@ -76,12 +84,12 @@ $$\text{Headwind Component} = \text{Wind\_Speed} \times \cos(\theta)$$
 
 ## 📁 Struktur Repositori
 
-```
-hmi_aviation/
+```text
+github_repository/
 │
 ├── README.md                           # Dokumentasi resmi proyek
-├── requirements.txt                    # Dependensi Python Flask
 ├── .gitignore                          # Filter pengabaian Git
+├── requirements.txt                    # Dependensi Python Flask
 │
 ├── hmi_aviation/                       # Modul Backend Flask & Template HMI Local
 │   ├── app.py                          # Server Flask dengan Kalkulasi Vektor Otomatis
@@ -132,4 +140,4 @@ hmi_aviation/
 Proyek purwarupa ini diselesaikan sebagai bagian dari kegiatan **Magang / Praktik Kerja Lapangan di BMKG Batam (Stasiun Meteorologi Hang Nadim Batam)**. Ucapan terima kasih disampaikan kepada seluruh pembimbing dan teknisi di BMKG Batam atas dorongan dan ilmu yang diberikan selama masa magang.
 
 ---
-*Dikembangkan oleh peserta magang BMKG Batam - Fikri Rizkia Prisyabil • 2026*
+*Dikembangkan oleh peserta magang BMKG Batam • 2026*
