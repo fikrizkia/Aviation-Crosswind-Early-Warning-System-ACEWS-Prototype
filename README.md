@@ -9,6 +9,7 @@
 Proyek ini dikembangkan secara **Mandiri (Independent Project)** sebagai bagian dari program **Magang / Praktik Kerja Lapangan di BMKG Batam (Stasiun Meteorologi Hang Nadim Batam)**.
 
 > [!IMPORTANT]
+> **Pernyataan Data Dummy (Mock Data)**:
 > Seluruh data parameter cuaca (seperti *Wind Speed*, *Wind Direction*, dan *Runway Heading*) yang digunakan dalam purwarupa ini adalah **DATA SIMULASI / TIRUAN (DUMMY DATA)** yang dibangkitkan khusus untuk pengujian logika alur data, evaluasi ambang batas bahaya, dan demonstrasi antarmuka HMI visual.
 
 ---
@@ -21,19 +22,29 @@ Angin silang (*crosswind*) dengan kecepatan tinggi merupakan salah satu faktor r
 ### Solusi ACEWS
 **ACEWS (Aviation Crosswind Early Warning System)** dirancang sebagai purwarupa solusi otomatisasi pemantauan angin silang. Sistem ini mengolah trigonometri komponen vektor angin secara *real-time* terhadap orientasi landasan pacu (*Runway Heading*), lalu memberikan kalkulasi presisi komponen *Crosswind* dan *Headwind/Tailwind* beserta status peringatan dini berjenjang (*Early Warning Status*) pada antarmuka *Control Room HMI*.
 
-### 📐 Rumus Trigonometri Vektor Angin
+---
 
-```text
-Selisih Sudut (θ)      = Arah Angin - Runway Heading
-Komponen Crosswind    = | Kecepatan Angin × sin(θ) |
-Komponen Headwind     = Kecepatan Angin × cos(θ)
-```
+## 📐 Rumus Matematika Vektor Angin
 
-$$\text{Relative Angle } (\theta) = \text{Wind\_Dir} - \text{Runway\_Head}$$
+Berikut adalah formulasi matematika trigonometri yang digunakan untuk mengurai vektor angin utama terhadap aksis landasan pacu:
 
-$$\text{Crosswind Component} = \left| \text{Wind\_Speed} \times \sin(\theta) \right|$$
+### 1. Formulasi Persamaan Math (LaTeX)
 
-$$\text{Headwind Component} = \text{Wind\_Speed} \times \cos(\theta)$$
+$$\Delta\theta = \text{Wind Direction} - \text{Runway Heading}$$
+
+$$V_{\text{crosswind}} = \left| V_{\text{wind}} \cdot \sin(\Delta\theta) \right|$$
+
+$$V_{\text{headwind}} = V_{\text{wind}} \cdot \cos(\Delta\theta)$$
+
+---
+
+### 2. Tabel Ringkasan Kalkulasi
+
+| Parameter Vektor | Keterangan | Formulasi Matematika |
+| :--- | :--- | :--- |
+| **Selisih Sudut ($\Delta\theta$)** | Selisih arah angin & arah landasan | `Arah Angin` − `Runway Heading` |
+| **Komponen Crosswind ($V_{\text{cross}}$)** | Komponen angin tegak lurus (samping) | $\| V_{\text{wind}} \cdot \sin(\Delta\theta) \|$ |
+| **Komponen Headwind ($V_{\text{head}}$)** | Komponen angin sejajar (depan/belakang) | $V_{\text{wind}} \cdot \cos(\Delta\theta)$ |
 
 ---
 
@@ -137,7 +148,7 @@ github_repository/
 
 ## 🎓 Pengakuan & Ucapan Terima Kasih
 
-Proyek purwarupa ini diselesaikan sebagai bagian dari kegiatan **Magang / Praktik Kerja Lapangan di BMKG Batam (Stasiun Meteorologi Hang Nadim Batam)**. Ucapan terima kasih disampaikan kepada seluruh pembimbing dan teknisi di BMKG Batam atas dorongan dan ilmu yang diberikan selama masa magang.
+Proyek purwarupa me ini diselesaikan sebagai bagian dari kegiatan **Magang / Praktik Kerja Lapangan di BMKG Batam (Stasiun Meteorologi Hang Nadim Batam)**. Ucapan terima kasih disampaikan kepada seluruh pembimbing dan teknisi di BMKG Batam atas dorongan dan ilmu yang diberikan selama masa magang.
 
 ---
 *Dikembangkan oleh peserta magang BMKG Batam • 2026*
